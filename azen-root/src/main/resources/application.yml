@@ -9,6 +9,24 @@ spring:
       enabled: true
       max-file-size: 30MB
       max-request-size: 100MB
+  rabbitmq:
+    username: admin
+    password: 824780260
+    host: 8.129.237.25
+    port: 5672
+    vhost: /
+    template:
+      receive-timeout: 30000
+      reply-timeout: 30000
+      retry:
+        enabled: false
+    listener:
+      direct:
+        retry:
+          enabled: false
+      default-requeue-rejected: true
+      retry:
+        enabled: false
 mybatis:
   type-aliases-package: "com.azen.root.bean"
   mapper-locations:
