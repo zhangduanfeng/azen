@@ -5,6 +5,7 @@ import com.azen.root.dao.AdminMapper;
 import com.azen.root.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,8 +30,12 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    @Transactional
     public Integer adminInsertInFo(Admin admin) {
-        return adminMapper.adminInsertInFo(admin);
+        adminMapper.adminInsertInFo(admin);
+        System.out.println("99999999999999");
+        int i = 1/0;
+        return 1;
     }
 
     @Override

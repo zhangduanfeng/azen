@@ -1,9 +1,27 @@
 spring:
   datasource:
     username: root
-    password: 614750226
+    password: wzz123
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url:  jdbc:mysql://127.0.0.1:3306/shop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    url:  jdbc:mysql://8.129.237.25:3306/shop?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&allowMultiQueries=true
+  rabbitmq:
+    username: admin
+    password: 824780260
+    host: 8.129.237.25
+    port: 5672
+    vhost: /
+    template:
+      receive-timeout: 30000
+      reply-timeout: 30000
+      retry:
+        enabled: false
+    listener:
+      direct:
+        retry:
+          enabled: false
+      default-requeue-rejected: true
+      retry:
+        enabled: false
 mybatis:
   type-aliases-package: "com.azen.user.bean"
   mapper-locations:
@@ -18,3 +36,4 @@ pagehelper:
   arams: count=countSql
 server:
   port: 80
+
